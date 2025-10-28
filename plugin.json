@@ -1,9 +1,9 @@
 {
-  "name": "plugin-sample-vite-vue",
-  "author": "wetoria",
-  "url": "https://github.com/Wetoria/plugin-sample-vite-vue",
+  "name": "siyuan-embed-tikz",
+  "author": "Yuxin Zhao",
+  "url": "https://github.com/YuxinZhaozyx/siyuan-embed-tikz",
   "version": "0.0.1",
-  "minAppVersion": "2.10.14",
+  "minAppVersion": "3.0.0",
   "disabledInPublish": true,
   "backends": [
     "all"
@@ -12,19 +12,15 @@
     "all"
   ],
   "displayName": {
-    "default": "plugin-sample-vite-vue",
-    "en_US": "plugin-sample-vite-vue",
-    "zh_CN": "plugin-sample-vite-vue"
+    "default": "Embed TikZ",
+    "zh_CN": "嵌入式TikZ"
   },
   "description": {
-    "default": "plugin-sample-vite-vue",
-    "en_US": "plugin-sample-vite-vue",
-    "zh_CN": "plugin-sample-vite-vue"
+    "default": "siyuan plugin for creating TikZ image with LaTeX",
+    "zh_CN": "思源笔记的TikZ插件，使用LaTeX创建TikZ图片"
   },
   "readme": {
-    "default": "README.md",
-    "en_US": "README.md",
-    "zh_CN": "README_zh_CN.md"
+    "default": "README.md"
   },
   "funding": {
     "custom": []
