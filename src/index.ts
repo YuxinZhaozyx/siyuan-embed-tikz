@@ -17,7 +17,7 @@ const {
   version,
 } = PluginInfo
 
-export default class ShadowClonePlugin extends Plugin {
+export default class TikZPlugin extends Plugin {
   // Run as mobile
   public isMobile: boolean
   // Run in browser
@@ -32,11 +32,29 @@ export default class ShadowClonePlugin extends Plugin {
   public readonly version = version
 
   async onload() {
+    this.initMetaInfo();
   }
 
   onunload() {
   }
 
   openSetting() {
+  }
+
+  private initMetaInfo() {
+    const frontEnd = getFrontend();
+    this.platform = frontEnd as SyFrontendTypes
+    this.isMobile = frontEnd === "mobile" || frontEnd === "browser-mobile";
+    this.isBrowser = frontEnd.includes('browser');
+    this.isLocal = location.href.includes('127.0.0.1') || location.href.includes('localhost');
+    this.isInWindow = location.href.includes('window.html');
+
+    try {
+      require("@electron/remote")
+        .require("@electron/remote/main");
+      this.isElectron = true;
+    } catch (err) {
+      this.isElectron = false;
+    }
   }
 }
