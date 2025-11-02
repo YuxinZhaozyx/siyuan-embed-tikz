@@ -1,3 +1,9 @@
 {
-  "addTopBarIcon": "PluginSampleViteVue"
+  "noMessage": "no message",
+  "compile": "compile",
+  "compiling": "compiling",
+  "compileSuccessButton": "Success & Quit",
+  "compileErrorButton": "Error Message",
+  "editTikZ": "Edit TiKZ",
+  "transformTikZ": "Transform to Embed TiKZ"
 }

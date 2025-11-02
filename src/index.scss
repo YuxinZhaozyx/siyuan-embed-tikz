@@ -1,0 +1,81 @@
+.tikz-edit-dialog {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%; // 确保对话框占满高度
+
+    button {
+        margin: 2px;
+
+        svg {
+            pointer-events: none;
+        }
+    }
+
+    .edit-dialog-header {
+        display: block;
+        height: 24px;
+        flex-shrink: 0;
+        cursor: grab;
+    }
+
+    .edit-dialog-container {
+        padding: 0 24px;
+        display: flex;
+        flex-direction: column;
+        flex: 1; // 让容器占据剩余空间
+        min-height: 0; // 允许容器收缩
+        overflow: hidden; // 防止内容溢出
+    }
+
+    .edit-dialog-editor {
+        border: 1px solid var(--b3-border-color);
+        border-radius: var(--b3-border-radius);
+        font-family: var(--b3-font-family-code);
+        flex: 1; // 让编辑器容器占据剩余空间
+        overflow: hidden; // 防止编辑器内容溢出
+
+        // CodeMirror 编辑器样式
+        .cm-editor {
+            height: 100%; // 强制编辑器高度为 100%
+            background-color: var(--b3-theme-background);
+
+            // 编辑器字体
+            .cm-scroller {
+                font-family: var(--b3-font-family-code);
+            }
+
+            // 行号样式
+            .cm-gutters {
+                background-color: var(--b3-theme-surface);
+                color: var(--b3-theme-on-surface);
+                border-right: 1px solid var(--b3-border-color);
+            }
+
+            // 代码折叠图标
+            .cm-foldGutter {
+                .cm-gutterElement {
+                    padding: 0 2px;
+
+                    span {
+                        user-select: none;
+                    }
+                }
+            }
+
+            // 占位符样式
+            .cm-placeholder {
+                color: var(--b3-theme-on-surface-light);
+            }
+        }
+    }
+
+    .edit-dialog-message {
+        border: 1px solid var(--b3-border-color);
+        border-radius: var(--b3-border-radius);
+        font-family: var(--b3-font-family-code);
+        flex: 1;
+        overflow: auto;
+        resize: none;
+    }
+}

@@ -114,18 +114,25 @@ type doOperation = {
 interface Window {
   siyuan: {
     notebooks: any;
-    menus: any;
+    menus: {
+      menu: Menu;
+    };
     dialogs: any;
     blockPanels: any;
     storage: any;
     user: any;
     ws: any;
     languages: any;
+    config: {
+      appearance: {
+        mode: number;
+      };
+    }
   };
   _sy_plugin_sample: {
     [key: string]: any;
   };
-}
+};
 
 
 enum SyFrontendTypes {
@@ -138,4 +145,16 @@ enum SyFrontendTypes {
   'browser-desktop' = 'browser-desktop',
   // 浏览器 - 移动端
   'browser-mobile' = 'browser-mobile',
+}
+
+interface TikZImageInfo {
+  imageURL: string;
+  tikzCode: string;
+}
+
+interface IResCompileTikZ {
+  ok: boolean;
+  tikzCode: string;
+  svgCode: string;
+  message: string;
 }

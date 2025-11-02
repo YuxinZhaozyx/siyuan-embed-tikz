@@ -1,3 +1,9 @@
 {
-  "addTopBarIcon": "PluginSampleViteVue"
+  "noMessage": "无信息",
+  "compile": "编译",
+  "compiling": "编译中",
+  "compileSuccessButton": "成功 & 退出",
+  "compileErrorButton": "错误信息",
+  "editTikZ": "编辑TiKZ",
+  "transformTikZ": "转换为嵌入式TiKZ"
 }
