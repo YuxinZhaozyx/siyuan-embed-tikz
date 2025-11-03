@@ -55,8 +55,13 @@ jobs:
       - name: Release
         uses: ncipollo/release-action@v1
         with:
+          tag: ${{ github.ref }}
           allowUpdates: true
           artifactErrorsFailBuild: true
           artifacts: "package.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
-          prerelease: true
+          draft: false
+          prerelease: false
+          generateReleaseNotes: true
+          bodyFile: "README.md"
+
