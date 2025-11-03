@@ -3,11 +3,11 @@
 <br>
 
 <p align="center">
-    <strong>SiYuan Plugin「Embed Series」</strong>
+    <strong>思源插件「嵌入式系列」</strong>
     <br>
-    Draw high-quality vector graphics directly in SiYuan using LaTeX TikZ syntax.
+    使用 LaTeX TikZ 语法，在思源笔记中直接绘制高质量矢量图。
     <br>
-    No external dependencies · Full editability · Free to share
+    无需外部依赖 · 自由编辑 · 自由分享
 </p>
 
 <p align="center">
@@ -16,19 +16,20 @@
 
 ---
 
-## Embed Series
+## 嵌入式系列
 
-This plugin is an upgraded version of the TikZ Widget (`siyuan-tikz`), and serves as the first plugin in the **Embed Series**, aiming to provide a more complete and flexible TikZ experience within SiYuan.
+本插件为TikZ挂件(siyuan-tikz)的升级版，作为第一个「嵌入式系列」插件，旨在为思源笔记提供更加完善且自由的TikZ使用体验。
 
-**The principle of Embed Series plugins**: They are designed solely as auxiliary editing tools for SiYuan, embedding all information directly into formats supported by SiYuan and Markdown. This ensures that all content created by the plugin remains fully visible and functional even after being separated from the plugin — or even from SiYuan itself — such as when exporting to Markdown or sharing on third-party platforms.
+**嵌入式系列插件的宗旨**：仅作为思源笔记的辅助编辑插件，将所有信息嵌入思源笔记和markdown所支持的数据格式中，使得插件所创造的所有内容在脱离插件甚至脱离思源笔记（导出为markdown/分享到第三方平台）后仍然可以正常显示。
 
-For users of the original TikZ Widget, this plugin provides a one-click migration feature to help you quickly transition. For detailed steps, please refer to the [Usage Guide](#usage-guide) section below.
+对于原TikZ挂件用户，本插件也提供了一键转换功能，以帮助原TikZ挂件用户快速迁移到本插件，详细步骤请阅读本文[使用指南](#使用指南)小节。
 
-## Effects
+
+## 使用效果
 
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```latex
 \begin{document}
@@ -48,7 +49,7 @@ For users of the original TikZ Widget, this plugin provides a one-click migratio
 ![image.png](https://b3logfile.com/file/2025/06/image-hwMd0gX.png)
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```latex
 \usepackage{pgfplots}
@@ -79,7 +80,7 @@ For users of the original TikZ Widget, this plugin provides a one-click migratio
 ![image.png](https://b3logfile.com/file/2025/06/image-QnYbik4.png)
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```latex
 \usepackage{pgfplots}
@@ -114,7 +115,7 @@ For users of the original TikZ Widget, this plugin provides a one-click migratio
 ![image.png](https://b3logfile.com/file/2025/06/image-i79EChn.png)
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```latex
 \usepackage{circuitikz}
@@ -138,7 +139,7 @@ to[R=$R_2$, i>_=$i_2$]
 ![image.png](https://b3logfile.com/file/2025/06/image-rMJlPsJ.png)
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```latex
 \usepackage{pgfplots}
@@ -165,7 +166,7 @@ to[R=$R_2$, i>_=$i_2$]
 ![image.png](https://b3logfile.com/file/2025/06/image-iZ1cP74.png)
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```latex
 \usepackage{tikz-cd}
@@ -191,7 +192,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 ![image.png](https://b3logfile.com/file/2025/06/image-qAYwmMt.png)
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```latex
 \usepackage{chemfig}
@@ -208,7 +209,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```latex
 \usepackage{chemfig}
@@ -242,7 +243,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```latex
 \usepackage{amsmath, amsfonts,times}
@@ -342,7 +343,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 ![image.png](https://b3logfile.com/file/2025/06/image-O9ftKzF.png)
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```
 \usepackage{tikz}
@@ -420,7 +421,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 ![image.png](https://b3logfile.com/file/2025/09/image-Q6z7Wb4.png)
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```
 \tikz \node {
@@ -441,7 +442,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 ![image.png](https://b3logfile.com/file/2025/09/image-lfmkZEY.png)
 
 <details>
-<summary> TikZ code </summary>
+<summary> TikZ 代码 </summary>
 
 ```
 \usetikzlibrary{arrows.meta}
@@ -545,16 +546,17 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ![image.png](https://b3logfile.com/file/2025/11/image-Sd0SQYv.png)
 
-## Features
 
-- [x] Offline usage (no internet required)
-- [x] CodeMirror editor (syntax highlighting, auto-completion, error hints)
-- [x] Support for rendering multiple TikZ pictures within a single TikZ code
-- [x] Full Chinese character support
+## 功能
 
-> If you have additional feature requests or suggestions, feel free to [open an issue on GitHub](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues) or [post in the SiYuan community](https://ld246.com/article/1762188806548).
+- [x] 无网络离线使用
+- [x] CodeMirror编辑器（语法高亮、代码自动补全、错误提示）
+- [x] 支持一段TikZ代码中同时绘制多张TikZ图像
+- [x] 中文支持
 
-**Supported Packages:**
+> 如有更多需求/建议欢迎[在GitHub仓库中提issue](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues)或[在思源笔记社区中发帖](https://ld246.com/article/1762188806548)
+
+**支持的包：**
 
 - [x] tikz-cd
 - [x] tikz-3dplot
@@ -563,25 +565,23 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 - [x] pgfplots
 - [x] array
 
-> If your code fails to render properly, it's likely due to an unsupported package. Please [open an issue on GitHub](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues) or [post in the SiYuan community](https://ld246.com/article/1762188806548) to request support for additional packages.
+> 如发现代码无法正常渲染为图形，大概率是缺少一些包，欢迎[在GitHub仓库中提issue](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues)或[在思源笔记社区中发帖](https://ld246.com/article/1762188806548)请求添加更多包的支持
 
-## Usage Guide
+## 使用指南
 
-**Create a TikZ Image:**  
-Type `/tikz` in the editor to create a new TikZ image.
+**创建TikZ图像：** 在编辑器中输入 `/tikz` 命令即可创建新TikZ图像。
 
-**Edit a TikZ Image:**  
-Click the menu button in the top-right corner of the image. If the block is recognized as a valid TikZ image, an `Edit TikZ` option will appear. Click it to open the editor.
+**编辑TikZ图像：** 点击图像右上角的菜单按钮，当图像被识别为合法的TikZ图像时，菜单中会显示 `编辑TikZ` 的选项，点击即可打开编辑器。
 
-**Migrate from TikZ Widget:**  
-Click the menu button on the left side of a TikZ Widget block. An option labeled `Convert to Embed TikZ` will appear. Click it to convert the old widget block into a new Embed Series image.
+**从TikZ挂件迁移：** 点击TikZ挂件块左侧的菜单按钮，会显示 `转换为嵌入式TikZ` 的选项，点击即可将TikZ挂件块转换为TikZ图像。
 
-## Changelog
+
+## 更新日志
 
 + v0.6.1
-    + Optimize English support
+    + 优化英文支持
 + v0.6.0
-    + Inherits all core features from the original TikZ Widget (`siyuan-tikz`)
-    + Added ability to edit TikZ image via the top-right menu button
-    + One-click migration from the original TikZ Widget
-    + TikZ code and fonts are now embedded directly into the image (SVG metadata)
+    + 继承TikZ挂件(siyuan-tikz)的所有功能，点击图像右上角按钮编辑TikZ
+    + 提供原TikZ挂件转换为新版本插件图像的功能
+    + TikZ图像嵌入TikZ代码和字体
+

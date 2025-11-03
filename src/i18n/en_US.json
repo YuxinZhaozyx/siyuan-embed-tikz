@@ -5,5 +5,5 @@
   "compileSuccessButton": "Success & Quit",
   "compileErrorButton": "Error Message",
   "editTikZ": "Edit TiKZ",
-  "transformTikZ": "Transform to Embed TiKZ"
+  "transformTikZ": "Convert to Embed TiKZ"
 }

@@ -70,5 +70,5 @@ jobs:
           draft: false
           prerelease: false
           generateReleaseNotes: true
-          bodyFile: "README.md"
+          bodyFile: "README_zh_CN.md"
 

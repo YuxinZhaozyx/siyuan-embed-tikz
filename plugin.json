@@ -2,8 +2,8 @@
   "name": "siyuan-embed-tikz",
   "author": "Yuxin Zhao",
   "url": "https://github.com/YuxinZhaozyx/siyuan-embed-tikz",
-  "version": "0.6.0",
-  "minAppVersion": "3.0.0",
+  "version": "0.6.1",
+  "minAppVersion": "3.3.0",
   "disabledInPublish": true,
   "backends": [
     "all"
@@ -20,10 +20,11 @@
     "zh_CN": "「嵌入式系列」使用LaTeX TikZ创建可编辑的高质量矢量图"
   },
   "readme": {
-    "default": "README.md"
+    "default": "README.md",
+    "zh_CN": "README_zh_CN.md"
   },
   "funding": {
     "custom": []
   },
-  "keywords": []
+  "keywords": ["Embed Series", "LaTeX"]
 }
