@@ -1,6 +1,6 @@
 {
   "name": "siyuan-embed-tikz",
-  "version": "0.0.1",
+  "version": "0.6.0",
   "type": "module",
   "description": "This is a plugin for siyuan",
   "author": "",
@@ -27,6 +27,7 @@
     "@codemirror/view": "^6.38.6",
     "@uiw/codemirror-theme-vscode": "^4.25.2",
     "codemirror-lang-latex": "^0.2.0",
+    "threads": "^1.7.0",
     "vue": "^3.3.8"
   },
   "devDependencies": {

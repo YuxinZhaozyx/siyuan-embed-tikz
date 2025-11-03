@@ -2,7 +2,7 @@
   "name": "siyuan-embed-tikz",
   "author": "Yuxin Zhao",
   "url": "https://github.com/YuxinZhaozyx/siyuan-embed-tikz",
-  "version": "0.0.1",
+  "version": "0.6.0",
   "minAppVersion": "3.0.0",
   "disabledInPublish": true,
   "backends": [
@@ -12,12 +12,12 @@
     "all"
   ],
   "displayName": {
-    "default": "Embed TikZ",
-    "zh_CN": "嵌入式TikZ"
+    "default": "TikZ",
+    "zh_CN": "TikZ"
   },
   "description": {
-    "default": "siyuan plugin for creating TikZ image with LaTeX",
-    "zh_CN": "思源笔记的TikZ插件，使用LaTeX创建TikZ图片"
+    "default": "[Embed Series] Create editable SVG Image with LaTeX TikZ",
+    "zh_CN": "[嵌入式系列] 使用LaTeX TikZ创建可编辑的高质量矢量图"
   },
   "readme": {
     "default": "README.md"
