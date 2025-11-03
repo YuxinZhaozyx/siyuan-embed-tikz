@@ -54,9 +54,14 @@ jobs:
       - name: Build for production
         run: pnpm build
 
+      - name: Extract tag name
+        id: extract_tag
+        run: echo "::set-output name=tag_name::${GITHUB_REF#refs/tags/}"
+
       - name: Release
         uses: ncipollo/release-action@v1
         with:
+          name: ${{  steps.extract_tag.outputs.tag_name }}
           tag: ${{ github.ref }}
           allowUpdates: true
           artifactErrorsFailBuild: true
