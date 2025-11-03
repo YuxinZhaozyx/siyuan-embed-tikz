@@ -550,7 +550,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 - [x] 支持一段TikZ代码中同时绘制多张TikZ图像
 - [x] 中文支持
 
-> 如有更多需求/建议欢迎在GitHub仓库中提issue或在思源笔记社区中发帖
+> 如有更多需求/建议欢迎[在GitHub仓库中提issue](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues)或[在思源笔记社区中发帖](https://ld246.com/article/1762188806548)
 
 **支持的包：**
 
@@ -561,7 +561,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 - [x] pgfplots
 - [x] array
 
-> 如发现代码无法正常渲染为图形，大概率是缺少一些包，欢迎在GitHub仓库中提issue或在思源笔记社区中发帖请求添加更多包的支持
+> 如发现代码无法正常渲染为图形，大概率是缺少一些包，欢迎[在GitHub仓库中提issue](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues)或[在思源笔记社区中发帖](https://ld246.com/article/1762188806548)请求添加更多包的支持
 
 ## 使用指南
 

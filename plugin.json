@@ -16,8 +16,8 @@
     "zh_CN": "TikZ"
   },
   "description": {
-    "default": "[Embed Series] Create editable SVG Image with LaTeX TikZ",
-    "zh_CN": "[嵌入式系列] 使用LaTeX TikZ创建可编辑的高质量矢量图"
+    "default": "「Embed Series」Create editable SVG Image with LaTeX TikZ",
+    "zh_CN": "「嵌入式系列」使用LaTeX TikZ创建可编辑的高质量矢量图"
   },
   "readme": {
     "default": "README.md"
