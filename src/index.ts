@@ -37,6 +37,10 @@ export default class TikZPlugin extends Plugin {
   public platform: SyFrontendTypes
   public readonly version = version
 
+  private _openMenuImageHandler;
+  private _clickBlockIconHandler;
+  private _globalKeyDownHandler;
+
   async onload() {
     this.initMetaInfo();
     initializeTikZ(`/plugins/${this.name}/libs/tikzjax`);
@@ -52,11 +56,20 @@ export default class TikZPlugin extends Plugin {
       },
     }];
 
-    this.eventBus.on("open-menu-image", this.openMenuImageHandler.bind(this));
-    this.eventBus.on("click-blockicon", this.clickBlockIconHandler.bind(this));
+    this._openMenuImageHandler = this.openMenuImageHandler.bind(this);
+    this.eventBus.on("open-menu-image", this._openMenuImageHandler);
+
+    this._clickBlockIconHandler = this.clickBlockIconHandler.bind(this);
+    this.eventBus.on("click-blockicon", this._clickBlockIconHandler);
+
+    this._globalKeyDownHandler = this.globalKeyDownHandler.bind(this);
+    document.documentElement.addEventListener("keydown", this._globalKeyDownHandler);
   }
 
   onunload() {
+    this.eventBus.off("open-menu-image", this._openMenuImageHandler);
+    this.eventBus.off("click-blockicon", this._clickBlockIconHandler);
+    document.documentElement.removeEventListener("keydown", this._globalKeyDownHandler);
   }
 
   // openSetting() {
@@ -264,5 +277,14 @@ export default class TikZPlugin extends Plugin {
       });
     }
   }
+
+  private globalKeyDownHandler = (event: KeyboardEvent) => {
+    // 如果是在代码编辑器里使用快捷键，则阻止冒泡 https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues/1
+    console.log("hello");
+    if (document.activeElement.closest(".b3-dialog--open .tikz-edit-dialog")) {
+      console.log("world");
+      event.stopPropagation();
+    }
+  };
 
 }
