@@ -58,7 +58,11 @@ jobs:
         id: release_info
         run: |
           echo "tag_name=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-          echo "changelog=$(sed -n '/^## 更新日志/,$p' README_zh_CN.md)" >> $GITHUB_OUTPUT
+          changelog=$(sed -n '/^## 更新日志/,$p' README_zh_CN.md)
+          changelog="${changelog//'%'/'%25'}"
+          changelog="${changelog//$'\n'/%0A}"
+          changelog="${changelog//$'\r'/%0D}"
+          echo "changelog=${changelog}" >> $GITHUB_OUTPUT
 
       - name: Release
         uses: ncipollo/release-action@v1
