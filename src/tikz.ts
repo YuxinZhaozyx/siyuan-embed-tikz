@@ -20,14 +20,18 @@ export async function compileTikZ(tikzCode: string): Promise<IResCompileTikZ> {
         const metadataElement = tempElement.content.querySelector("metadata");
         tempElement.innerHTML = result.svgCode;
         const svgElement = tempElement.content.querySelector("svg");
-        if (svgElement.firstChild) {
-            svgElement.insertBefore(metadataElement, svgElement.firstChild);
+        if (svgElement) {
+            if (svgElement.firstChild) {
+                svgElement.insertBefore(metadataElement, svgElement.firstChild);
+            } else {
+                svgElement.appendChild(metadataElement);
+            }
+            svgElement.setAttribute("updated", new Date().toISOString());
+            svgElement.style="background-color: white;";
+            result.svgCode = svgElement.outerHTML;
         } else {
-            svgElement.appendChild(metadataElement);
+            throw new Error("No generated image");
         }
-        svgElement.setAttribute("updated", new Date().toISOString());
-        svgElement.style="background-color: white;";
-        result.svgCode = svgElement.outerHTML;
     } catch (err) {
         result.ok = false;
         result.message = err.toString();

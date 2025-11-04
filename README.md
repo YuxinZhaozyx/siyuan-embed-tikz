@@ -578,6 +578,8 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
++ v0.6.4
+    + Fix bug: Error hint when inputing empty TikZ code
 + v0.6.3
     + Fix bug: Keyboard shortcuts in the CodeMirror editor are being passed through to the SiYuan editor [#1](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues/1)
 + v0.6.2
