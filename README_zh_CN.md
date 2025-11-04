@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-    <a href="README_zh_CN.md">中文</a> | <a href="README.md">English</a>
+    <a href="https://github.com/YuxinZhaozyx/siyuan-embed-tikz/blob/main/README_zh_CN.md">中文</a> | <a href="https://github.com/YuxinZhaozyx/siyuan-embed-tikz/blob/main/README.md">English</a>
 </p>
 
 ---
@@ -22,7 +22,7 @@
 
 **嵌入式系列插件的宗旨**：仅作为思源笔记的辅助编辑插件，将所有信息嵌入思源笔记和markdown所支持的数据格式中，使得插件所创造的所有内容在脱离插件甚至脱离思源笔记（导出为markdown/分享到第三方平台）后仍然可以正常显示。
 
-对于原TikZ挂件用户，本插件也提供了一键转换功能，以帮助原TikZ挂件用户快速迁移到本插件，详细步骤请阅读本文[使用指南](#使用指南)小节。
+对于原TikZ挂件用户，本插件也提供了一键转换功能，以帮助原TikZ挂件用户快速迁移到本插件，详细步骤请阅读本文使用指南小节。
 
 
 ## 使用效果
@@ -578,6 +578,9 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ## 更新日志
 
++ v0.6.2
+    + 优化TikZ挂件迁移体验
+    + 优化暗黑模式下的图片显示
 + v0.6.1
     + 优化英文支持
 + v0.6.0

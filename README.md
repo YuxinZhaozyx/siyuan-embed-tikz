@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-    <a href="README_zh_CN.md">中文</a> | <a href="README.md">English</a>
+    <a href="https://github.com/YuxinZhaozyx/siyuan-embed-tikz/blob/main/README_zh_CN.md">中文</a> | <a href="https://github.com/YuxinZhaozyx/siyuan-embed-tikz/blob/main/README.md">English</a>
 </p>
 
 ---
@@ -22,7 +22,7 @@ This plugin is an upgraded version of the TikZ Widget (`siyuan-tikz`), and serve
 
 **The principle of Embed Series plugins**: They are designed solely as auxiliary editing tools for SiYuan, embedding all information directly into formats supported by SiYuan and Markdown. This ensures that all content created by the plugin remains fully visible and functional even after being separated from the plugin — or even from SiYuan itself — such as when exporting to Markdown or sharing on third-party platforms.
 
-For users of the original TikZ Widget, this plugin provides a one-click migration feature to help you quickly transition. For detailed steps, please refer to the [Usage Guide](#usage-guide) section below.
+For users of the original TikZ Widget, this plugin provides a one-click migration feature to help you quickly transition. For detailed steps, please refer to the Usage Guide section below.
 
 ## Effects
 
@@ -578,6 +578,9 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
++ v0.6.2
+    + Optimize migration from the original TikZ Widget
+    + Optimize SVG display in dark mode
 + v0.6.1
     + Optimize English support
 + v0.6.0

@@ -79,7 +79,7 @@ export default class TikZPlugin extends Plugin {
     }
   }
 
-  public openEditDialog(imageInfo: TikZImageInfo) {
+  public openEditDialog(imageInfo: TikZImageInfo, autoCompile?: boolean, autoClose?:boolean) {
     const editDialogHTML = `
 <div class="tikz-edit-dialog">
     <div class="edit-dialog-header resize__move"></div>
@@ -127,7 +127,9 @@ export default class TikZPlugin extends Plugin {
       });
       dialog.element.querySelector("[data-action=success]").classList.toggle("fn__none", !compileResult.ok);
       dialog.element.querySelector("[data-action=error]").classList.toggle("fn__none", compileResult.ok);
+      dialog.element.querySelector(".edit-dialog-message").classList.toggle("fn__none", compileResult.ok);
       (dialog.element.querySelector(".edit-dialog-message") as HTMLTextAreaElement).value = compileResult.message;
+      if (autoClose && compileResult.ok) dialog.destroy(); 
 
       editor.setEditable(true);
       dialog.element.querySelector("[data-action=main]").classList.toggle("fn__none", false);
@@ -145,6 +147,7 @@ export default class TikZPlugin extends Plugin {
     }
     dialog.element.querySelector("[data-action=error]").addEventListener("click", compileErrorHandler);
 
+    if (autoCompile) compileHandler();
   }
 
   public async getTikZImageInfo(imageURL: string): Promise<TikZImageInfo | null> {
@@ -255,7 +258,7 @@ export default class TikZPlugin extends Plugin {
         click: () => {
           const tikzCode = selectedElement.getAttribute("custom-latex-code") || "";
           this.newTikZImage(selectedElement.dataset.nodeId, tikzCode, (imageInfo) => {
-            this.openEditDialog(imageInfo);
+            this.openEditDialog(imageInfo, true, true);
           });
         }
       });

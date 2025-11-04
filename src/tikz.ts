@@ -26,6 +26,7 @@ export async function compileTikZ(tikzCode: string): Promise<IResCompileTikZ> {
             svgElement.appendChild(metadataElement);
         }
         svgElement.setAttribute("updated", new Date().toISOString());
+        svgElement.style="background-color: white;";
         result.svgCode = svgElement.outerHTML;
     } catch (err) {
         result.ok = false;
