@@ -123,6 +123,7 @@ export default class TikZPlugin extends Plugin {
     // 创建编辑器
     const editorContainer = dialog.element.querySelector(".edit-dialog-editor") as HTMLElement;
     const editor = new Editor(editorContainer, imageInfo.tikzCode);
+    editor.focus();
 
     const compileHandler = async () => {
       editor.setEditable(false);

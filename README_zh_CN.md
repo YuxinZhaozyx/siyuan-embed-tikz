@@ -578,6 +578,8 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ## 更新日志
 
++ v0.6.5
+    + 改进：打开编辑对话框后聚焦到编辑器 [#1](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues/1)
 + v0.6.4
     + 修复缺陷：输入空白TikZ代码时的错误信息提示
 + v0.6.3

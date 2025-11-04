@@ -578,6 +578,8 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
++ v0.6.5
+    + Imporve: focus on editor when opening edit dialog [#1](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues/1)
 + v0.6.4
     + Fix bug: Error hint when inputing empty TikZ code
 + v0.6.3

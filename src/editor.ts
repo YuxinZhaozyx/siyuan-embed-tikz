@@ -150,4 +150,8 @@ export class Editor {
         });
     }
 
+    public focus() {
+        this.view.contentDOM.focus();
+    }
+
 }

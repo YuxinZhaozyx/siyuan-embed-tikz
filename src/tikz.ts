@@ -30,7 +30,7 @@ export async function compileTikZ(tikzCode: string): Promise<IResCompileTikZ> {
             svgElement.style="background-color: white;";
             result.svgCode = svgElement.outerHTML;
         } else {
-            throw new Error("No generated image");
+            throw new Error("No image generated");
         }
     } catch (err) {
         result.ok = false;
