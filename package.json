@@ -1,6 +1,6 @@
 {
   "name": "siyuan-embed-tikz",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "type": "module",
   "description": "This is a plugin for siyuan",
   "author": "",
@@ -27,13 +27,11 @@
     "@codemirror/view": "^6.38.6",
     "@uiw/codemirror-theme-vscode": "^4.25.2",
     "codemirror-lang-latex": "^0.2.0",
-    "threads": "^1.7.0",
-    "vue": "^3.3.8"
+    "threads": "^1.7.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.8.1",
     "@types/node": "^20.2.0",
-    "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.22.0",
     "eslint-plugin-format": "^1.0.1",

@@ -1,6 +1,5 @@
 /* eslint-disable node/prefer-global/process */
 import { resolve } from "node:path"
-import vue from "@vitejs/plugin-vue"
 import fg from "fast-glob"
 import minimist from "minimist"
 import livereload from "rollup-plugin-livereload"
@@ -51,7 +50,6 @@ export default defineConfig(({
     },
 
     plugins: [
-      vue(),
       viteStaticCopy({
         targets: [
           {

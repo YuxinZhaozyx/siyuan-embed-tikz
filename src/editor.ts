@@ -1,9 +1,17 @@
 // CodeMirror 6
 import { autocompletion, closeBrackets, closeBracketsKeymap } from "@codemirror/autocomplete"; // autocompletion, completionKeymap
 import { defaultKeymap, history, historyKeymap, indentWithTab } from "@codemirror/commands";
-import { latex } from "codemirror-lang-latex";
+import {
+    latexLanguage, 
+    latexCompletionSource,
+    latexLinter,
+    autoCloseTags,
+    latexHoverTooltip,
+    latexBracketMatching,
+} from "codemirror-lang-latex";
+import { linter } from '@codemirror/lint';
 import { highlightSelectionMatches, searchKeymap } from "@codemirror/search";
-import { EditorState, StateEffect, Compartment } from "@codemirror/state";
+import { EditorState, Compartment } from "@codemirror/state";
 import { vscodeDark, vscodeLight } from "@uiw/codemirror-theme-vscode";
 import {
     bracketMatching,
@@ -12,6 +20,7 @@ import {
     foldKeymap,
     indentOnInput,
     indentUnit,
+    LanguageSupport,
     syntaxHighlighting
 } from "@codemirror/language";
 import {
@@ -107,13 +116,33 @@ export class Editor {
                     indentWithTab,
                 ]),
                 // 启用语言支持
-                latex({
-                    autoCloseTags: true,
-                    autoCloseBrackets: false,
-                    enableLinting: true,
-                    enableTooltips: false,
-                    enableAutocomplete: true,
-                }),
+                // latex({
+                //     autoCloseTags: true,
+                //     autoCloseBrackets: false,
+                //     enableLinting: true,
+                //     enableTooltips: false,
+                //     enableAutocomplete: true,
+                // }),
+                new LanguageSupport(latexLanguage, [
+                    latexLanguage.data.of({
+                        autocomplete: latexCompletionSource(true),
+                    }),
+                    linter(latexLinter({
+                        checkMissingDocumentEnv: false,
+                        checkUnmatchedEnvironments: true,
+                        checkMissingReferences: false
+                    })),
+                    ...autoCloseTags,
+                    latexHoverTooltip,
+                    latexBracketMatching,
+                    autocompletion({
+                        override: [latexCompletionSource(true)],
+                        defaultKeymap: true,
+                        activateOnTyping: true,
+                        icons: true
+                    })
+                ]),
+
                 // 应用主题
                 theme,
             ],

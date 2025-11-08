@@ -578,6 +578,9 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
++ v0.6.7
+    + Improve: package size
+    + Improve: hint of editor
 + v0.6.6
     + Improve: dark mode support
 + v0.6.5
