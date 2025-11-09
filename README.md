@@ -578,6 +578,8 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
++ v0.6.8
+    + Update plugin name
 + v0.6.7
     + Improve: package size
     + Improve: hint of editor

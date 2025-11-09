@@ -578,6 +578,8 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ## 更新日志
 
++ v0.6.8
+    + 更新插件名
 + v0.6.7
     + 改进：优化打包体积
     + 改进：优化编辑器提示
