@@ -134,9 +134,10 @@ export default class TikZPlugin extends Plugin {
       imageInfo.tikzCode = editor.getContent();
       const compileResult = await compileTikZ(imageInfo.tikzCode);
       this.updateTikZImage(imageInfo, compileResult.svgCode, () => {
-        const timestamp = Date.now();
-        document.querySelectorAll(`img[data-src='${imageInfo.imageURL}']`).forEach(imageElement => {
-          (imageElement as HTMLImageElement).src = imageInfo.imageURL + "?t=" + timestamp; // 重载图片，加时间戳以避免浏览器缓存图片
+        fetch(imageInfo.imageURL, { cache: 'reload' }).then(() => {
+          document.querySelectorAll(`img[data-src='${imageInfo.imageURL}']`).forEach(imageElement => {
+            (imageElement as HTMLImageElement).src = imageInfo.imageURL;
+          });
         });
       });
       dialog.element.querySelector("[data-action=success]").classList.toggle("fn__none", !compileResult.ok);
@@ -221,7 +222,7 @@ export default class TikZPlugin extends Plugin {
   }
 
   public async getTikZImage(imageURL: string): Promise<string> {
-    const response = await fetch(imageURL);
+    const response = await fetch(imageURL, { cache: 'reload' });
     if (!response.ok) return "";
     const svgContent = await response.text();
     return svgContent;

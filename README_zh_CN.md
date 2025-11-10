@@ -578,6 +578,8 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ## 更新日志
 
++ v0.6.9
+    + 修复缺陷：图像无法放大查看
 + v0.6.8
     + 更新插件名
 + v0.6.7
