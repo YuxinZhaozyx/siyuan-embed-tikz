@@ -546,6 +546,115 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ![image.png](https://b3logfile.com/file/2025/11/image-Sd0SQYv.png)
 
+<details>
+<summary> TikZ 代码 </summary>
+
+```
+\documentclass{standalone}
+
+% 引入tkz-euclide宏包
+\usepackage{tkz-euclide}
+
+\begin{document}
+
+% 绘制环境(可以使用任何有效TikZ参数)
+\begin{tikzpicture}
+  % 定义单位圆半径(长度可任意)
+  \edef\r{2cm}
+  % 定义基础点(尽可能少)
+  \tkzDefPoints{0/-2/M, 0/2/N}
+  % 计算其它点
+  % 定义垂直平分线并求垂足
+  \tkzDefLine[mediator](M,N) \tkzGetPoints{x}{x'}
+  \tkzInterLL(M,N)(x,x') \tkzGetPoint{O}
+  % 确定正五边形连长
+  \tkzInterLC[R](x',x)(O,\r) \tkzGetPoints{b}{a}
+  % 定义正五边形，求得五个顶点
+  \tkzDefRegPolygon[side,sides=5,name=P](a,b)
+  % 求对角线交点
+  \tkzInterLL(P1,P4)(P3,P5) \tkzGetPoint{A}
+  \tkzInterLL(P2,P4)(P3,P5) \tkzGetPoint{B}
+  % 求边线上的交点
+  \tkzInterLC[with nodes](P2,P3)(A,P4,P3) \tkzGetPoints{C}{c}
+  \tkzInterLC[with nodes](P1,P5)(B,P4,P5) \tkzGetPoints{d}{D}
+  % 求各直线交点
+  \tkzInterLL(C,D)(M,N) \tkzGetPoint{O1}
+  \tkzInterLL(C,D)(P1,P4) \tkzGetPoint{E}
+  \tkzInterLL(C,D)(P2,P4) \tkzGetPoint{F}
+  \tkzInterLL(B,D)(A,C) \tkzGetPoint{O2}
+  \tkzInterLL(P2,P5)(B,D) \tkzGetPoint{K}
+  \tkzInterLL(P1,P3)(A,C) \tkzGetPoint{J}
+  % 求欧氏蛋与底边交点
+  \tkzInterLC(P1,P2)(O1,F) \tkzGetPoints{I}{I'}
+  % 求欧氏蛋顶点
+  \tkzInterLC(M,N)(O1,F) \tkzGetPoints{G}{g}
+  \tkzInterLC(M,N)(O2,A) \tkzGetPoints{h}{H}
+
+  % 绘制
+  % 绘制基础正五边形和需要线段
+  \tkzDrawPolygon[dashed,fill=cyan!30,draw=blue,fill opacity=0.3](P1,P2,P3,P4,P5)
+  \tkzDrawSegments[dashed, red!40!black](P1,P4 P1,P3 P2,P4 P2,P5 P3,P5 P4,O E,I)
+  \tkzDrawSegments[dashed, red!40!black](A,C B,D C,D E,I A,I' B,I)
+
+  % 绘制纵轴
+  \tkzDrawLine[dashed, add = 0.05 and 0.05, color = orange!40!black](G,P4)
+
+  % 绘制欧氏蛋
+  \tkzFillSector[fill=red,fill opacity=0.3](O1,G)(F)
+  \tkzDrawArc[line width=2pt,draw=red](O1,G)(F)
+  \tkzFillSector[fill=yellow,fill opacity=0.3](D,F)(B)
+  \tkzDrawArc[line width=2pt,draw=yellow](D,F)(B)
+  \tkzFillSector[fill=green,fill opacity=0.3](O2,B)(H)
+  \tkzDrawArc[line width=2pt,draw=green](O2,B)(H)
+  \tkzDrawArc[line width=2pt,draw=green](O2,H)(A)
+  \tkzDrawArc[line width=2pt,draw=yellow](C,A)(E)
+  \tkzDrawArc[line width=2pt,draw=red](O1,E)(G)
+
+  % 绘制点
+  \tkzSetUpPoint[size = 3]
+  \tkzDrawPoints(P1,P2,P3,P4,P5,C,D,J,K)
+  \tkzSetUpPoint[fill = red!50, color = red]
+  \tkzDrawPoints(O1,O2,D)
+  \tkzSetUpPoint[fill = white, color = black]
+  \tkzDrawPoints(H,B,F,G,E,A,I,I')
+
+  % 标记
+  % 标记相等线段
+  \tkzMarkSegments[color=gray,pos=0.5,mark=s||](E,I O1,O2)
+  % 标记角
+  \tkzMarkAngle[size=0.4](P2,P5,P3)
+  \tkzMarkRightAngle[red,size=0.2](P4,O1,D)
+
+  % 标注各点名称
+  \tkzLabelPoints[above left](P4,P5,H,A,E)
+  \tkzLabelPoints[above right](B,P3,F)
+  \tkzLabelPoints[below left](D,P1,G,O1,J,I)
+  \tkzLabelPoints[below right](P2,C,K,O2,I')
+
+  % 标注角度
+  \tkzLabelAngle[pos=0.7,font=\tiny](P2,P5,P3){$72^\circ$}
+
+  % 标注线段长度
+  \tkzLabelSegment[above,sloped,midway,font=\tiny](P3,P4){$1$}
+  \tkzLabelSegment[above,sloped,midway,shift={(-20pt,12pt)},font=\tiny](P2,P4){$P2P4=\Phi$}
+  \tkzLabelSegment[above,sloped,midway,font=\tiny](B,P4){$\Phi-1$}
+  \tkzLabelSegment[above,sloped,midway,font=\tiny](F,B){$\Phi-1$}
+  \tkzLabelSegment[above,sloped,midway,font=\tiny](F,P2){$2-\Phi$}
+  \tkzLabelSegment[above,sloped,midway,font=\tiny](F,O1){$2-\Phi$}
+  \tkzLabelSegment[above,sloped,midway,font=\tiny](D,K){$2-\Phi$}
+  \tkzLabelSegment[above,sloped,midway,font=\tiny](K,O2){$2-\Phi$}
+  \tkzLabelSegment[above,sloped,midway,font=\tiny](O2,B){$2\Phi-3$}
+  \tkzLabelSegment[below,sloped,midway,font=\tiny](D,E){$2\Phi-3$}
+\end{tikzpicture}
+
+\end{document}
+```
+
+</details>
+
+![image.png](https://b3logfile.com/file/2025/11/image-RMSXnMx.png)
+
+
 
 ## 功能
 
@@ -564,6 +673,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 - [x] chemfig
 - [x] pgfplots
 - [x] array
+- [x] tkz-euclide
 
 > 如发现代码无法正常渲染为图形，大概率是缺少一些包，欢迎[在GitHub仓库中提issue](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues)或[在思源笔记社区中发帖](https://ld246.com/article/1762188806548)请求添加更多包的支持
 
@@ -578,6 +688,8 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ## 更新日志
 
++ v0.7.0
+    + 增加宏包：tkz-euclide
 + v0.6.9
     + 修复缺陷：图像无法放大查看
 + v0.6.8
