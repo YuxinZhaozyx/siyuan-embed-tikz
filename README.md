@@ -689,6 +689,8 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
++ v0.7.1
+    + Fix: configuration `nodes in empty cells` of tikz-cd conflict with pgfplots
 + v0.7.0
     + Add Package: tkz-euclide
 + v0.6.9

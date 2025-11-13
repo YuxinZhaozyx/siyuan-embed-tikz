@@ -688,6 +688,8 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ## 更新日志
 
++ v0.7.1
+    + 修复缺陷：pgfplots与tikz-cd的`nodes in empty cells`设置冲突
 + v0.7.0
     + 增加宏包：tkz-euclide
 + v0.6.9
