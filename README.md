@@ -689,6 +689,8 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
++ v0.7.4
+    + Fix: amsfont display
 + v0.7.3
     + change SiYuan version requirement: >=3.0.0
 + v0.7.2

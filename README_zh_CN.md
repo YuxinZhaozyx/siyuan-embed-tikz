@@ -688,6 +688,8 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ## 更新日志
 
++ v0.7.4
+    + 修复缺陷：amsfont的字体显示
 + v0.7.3
     + 修改思源版本要求：>=3.0.0
 + v0.7.2
