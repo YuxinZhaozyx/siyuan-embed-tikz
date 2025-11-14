@@ -688,6 +688,8 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ## 更新日志
 
++ v0.7.2
+    + 修复缺陷：amsfont的字体显示
 + v0.7.1
     + 修复缺陷：pgfplots与tikz-cd的`nodes in empty cells`设置冲突
 + v0.7.0
