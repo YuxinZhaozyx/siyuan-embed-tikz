@@ -689,6 +689,8 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
++ v0.7.6
+    + fix version
 + v0.7.5
     + Add Package: quiver
 + v0.7.4

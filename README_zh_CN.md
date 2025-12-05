@@ -688,6 +688,8 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ## 更新日志
 
++ v0.7.6
+    + 修复版本标识
 + v0.7.5
     + 增加宏包：quiver
 + v0.7.4
