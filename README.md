@@ -16,6 +16,9 @@
 
 ---
 
+> **Notice!!!**
+> Since SiYuan version 3.5.4, SVG scripts are filtered by default, which prevents TikZ images from being edited. It mentions that users need to enable the `Settings > Editor > Allow execution of scripts inside SVG` option to allow secondary editing.
+
 ## Embed Series
 
 This plugin is an upgraded version of the TikZ Widget (`siyuan-tikz`), and serves as the first plugin in the **Embed Series**, aiming to provide a more complete and flexible TikZ experience within SiYuan.
@@ -689,6 +692,8 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
++ v0.7.8
+    + Since SiYuan version 3.5.4, SVG scripts are filtered by default, which prevents TikZ images from being edited. It mentions that users need to enable the `Settings > Editor > Allow execution of scripts inside SVG` option to allow secondary editing.
 + v0.7.7
     + Add QQ group
 + v0.7.6

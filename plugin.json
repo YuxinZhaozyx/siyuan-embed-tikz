@@ -24,7 +24,9 @@
     "zh_CN": "README_zh_CN.md"
   },
   "funding": {
-    "custom": []
+    "custom": [
+      "https://yuxinzhao.net/sponsor/"
+    ]
   },
   "keywords": []
 }
