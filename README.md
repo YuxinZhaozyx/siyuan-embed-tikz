@@ -656,7 +656,49 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ![image.png](https://b3logfile.com/file/2025/11/image-RMSXnMx.png)
 
+<details>
+<summary> TikZ 代码 </summary>
 
+```
+\usepackage{quantikz}
+\begin{document}
+  
+\begin{quantikz}
+    % 第一行：量子比特 0
+    \lstick{\ket{0}} & \gate{H}      & \ctrl{1}        & \meter{} & \cw \\
+    % 第二行：量子比特 1
+    \lstick{\ket{0}} & \gate[wires=2]{U} & \targ{}         & \meter{} & \cw \\
+    % 第三行：经典比特 (用于展示经典线)
+    \lstick{c}       & \qw           & \qw             & \rstick{0} \cw & \cw
+\end{quantikz}
+\end{document}
+```
+
+</details>
+
+![image.png](https://b3logfile.com/file/2026/03/image-0AlWcfw.png)
+
+
+<details>
+<summary> TikZ 代码 </summary>
+
+```
+\usetikzlibrary{quantikz2}
+
+\begin{document}
+
+  \begin{quantikz}
+  & \ctrl{1} & \targ{} & \swap{1} & \ctrl[verticalwire=c]{2} &&\\
+  & \control{} & \ctrl[open]{-1} & \targX{} && \gate{X} &\\
+  &&&& \gate{U} & \meter{} \wire[u][1]{c}
+  \end{quantikz}
+
+\end{document}
+```
+
+</details>
+
+![image.png](https://b3logfile.com/file/2026/03/image-LcRAt11.png)
 
 ## Features
 
@@ -670,12 +712,14 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 **Supported Packages:**
 
 - [x] tikz-cd
+- [x] quiver
 - [x] tikz-3dplot
 - [x] circuitikz
 - [x] chemfig
 - [x] pgfplots
 - [x] array
 - [x] tkz-euclide
+- [x] quantikz / quantikz2
 
 > If your code fails to render properly, it's likely due to an unsupported package. Please [open an issue on GitHub](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues) or [post in the SiYuan community](https://ld246.com/article/1762188806548) to request support for additional packages.
 
@@ -692,6 +736,8 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
+- v0.8.0
+    + Add Package: quantikz / quantikz2
 + v0.7.8
     + Since SiYuan version 3.5.4, SVG scripts are filtered by default, which prevents TikZ images from being edited. It mentions that users need to enable the `Settings > Editor > Allow execution of scripts inside SVG` option to allow secondary editing.
 + v0.7.7

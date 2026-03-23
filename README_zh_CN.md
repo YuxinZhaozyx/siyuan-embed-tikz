@@ -659,6 +659,49 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ![image.png](https://b3logfile.com/file/2025/11/image-RMSXnMx.png)
 
+<details>
+<summary> TikZ 代码 </summary>
+
+```
+\usepackage{quantikz}
+\begin{document}
+  
+\begin{quantikz}
+    % 第一行：量子比特 0
+    \lstick{\ket{0}} & \gate{H}      & \ctrl{1}        & \meter{} & \cw \\
+    % 第二行：量子比特 1
+    \lstick{\ket{0}} & \gate[wires=2]{U} & \targ{}         & \meter{} & \cw \\
+    % 第三行：经典比特 (用于展示经典线)
+    \lstick{c}       & \qw           & \qw             & \rstick{0} \cw & \cw
+\end{quantikz}
+\end{document}
+```
+
+</details>
+
+![image.png](https://b3logfile.com/file/2026/03/image-0AlWcfw.png)
+
+
+<details>
+<summary> TikZ 代码 </summary>
+
+```
+\usetikzlibrary{quantikz2}
+
+\begin{document}
+
+  \begin{quantikz}
+  & \ctrl{1} & \targ{} & \swap{1} & \ctrl[verticalwire=c]{2} &&\\
+  & \control{} & \ctrl[open]{-1} & \targX{} && \gate{X} &\\
+  &&&& \gate{U} & \meter{} \wire[u][1]{c}
+  \end{quantikz}
+
+\end{document}
+```
+
+</details>
+
+![image.png](https://b3logfile.com/file/2026/03/image-LcRAt11.png)
 
 
 ## 功能
@@ -673,12 +716,14 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 **支持的包：**
 
 - [x] tikz-cd
+- [x] quiver
 - [x] tikz-3dplot
 - [x] circuitikz
 - [x] chemfig
 - [x] pgfplots
 - [x] array
 - [x] tkz-euclide
+- [x] quantikz / quantikz2
 
 > 如发现代码无法正常渲染为图形，大概率是缺少一些包，欢迎[在GitHub仓库中提issue](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues)或[在思源笔记社区中发帖](https://ld246.com/article/1762188806548)请求添加更多包的支持
 
@@ -693,6 +738,8 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ## 更新日志
 
++ v0.8.0
+    + 增加宏包：quantikz / quantikz2
 + v0.7.8
     + 由于思源3.5.4默认会过滤掉SVG中的脚本，因此TikZ图像无法二次编辑，需在思源设置中开启 `设置 > 编辑器 > 允许执行SVG脚本` 选项才能二次编辑。
 + v0.7.7
