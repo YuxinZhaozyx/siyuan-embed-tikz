@@ -16,8 +16,6 @@
 
 ---
 
-> **Notice!!!**
-> Since SiYuan version 3.5.4, SVG scripts are filtered by default, which prevents TikZ images from being edited. It mentions that users need to enable the `Settings > Editor > Allow execution of scripts inside SVG` option to allow secondary editing.
 
 ## Embed Series
 
@@ -736,7 +734,9 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
-- v0.8.0
++ v0.8.1
+    + Optimize: automatically check and fix availability when starting the plugin
++ v0.8.0
     + Add Package: quantikz / quantikz2
 + v0.7.8
     + Since SiYuan version 3.5.4, SVG scripts are filtered by default, which prevents TikZ images from being edited. It mentions that users need to enable the `Settings > Editor > Allow execution of scripts inside SVG` option to allow secondary editing.

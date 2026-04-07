@@ -4,7 +4,9 @@ import {
   getFrontend,
   fetchPost,
   IWebSocketData,
+  Constants,
 } from "siyuan";
+import { compare } from "compare-versions";
 import "@/index.scss";
 import PluginInfoString from '@/../plugin.json'
 import { Editor } from "./editor";
@@ -43,6 +45,7 @@ export default class TikZPlugin extends Plugin {
 
   async onload() {
     this.initMetaInfo();
+    this.systemCheckAndFix();
     initializeTikZ(`/plugins/${this.name}/libs/tikzjax`);
 
     this.protyleSlash = [{
@@ -287,4 +290,10 @@ export default class TikZPlugin extends Plugin {
     }
   };
 
+  public systemCheckAndFix() {
+    if (compare(Constants.SIYUAN_VERSION, '3.5.4', '>=') && !window.siyuan.config.editor.allowSVGScript) {
+      window.siyuan.config.editor.allowSVGScript = true;
+      fetchPost("/api/setting/setEditor", window.siyuan.config.editor);
+    }
+  }
 }

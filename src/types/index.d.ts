@@ -127,6 +127,9 @@ interface Window {
       appearance: {
         mode: number;
       };
+      editor: {
+        allowSVGScript: boolean;
+      }
     }
   };
   _sy_plugin_sample: {
