@@ -2,7 +2,7 @@
   "name": "siyuan-embed-tikz",
   "author": "Yuxin Zhao",
   "url": "https://github.com/YuxinZhaozyx/siyuan-embed-tikz",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "minAppVersion": "3.0.0",
   "disabledInPublish": true,
   "backends": [

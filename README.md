@@ -698,6 +698,122 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ![image.png](https://b3logfile.com/file/2026/03/image-LcRAt11.png)
 
+
+<details>
+<summary> TikZ 代码 </summary>
+
+```
+\documentclass{standalone}
+\standaloneconfig{border=5pt} 
+\usepackage{optikz}
+\usepackage{graphicx}
+\usepackage{siunitx}
+
+\begin{document}
+\def\skala{0.8}
+\begin{tikzpicture}[scale=\skala, every text node part/.style={align=center, font=\scriptsize}]
+    \filldraw[fill opacity = 0.1,rounded corners=1mm, very thick] (7,6) rectangle (11,8);
+    \filldraw[fill opacity = 0.1,rounded corners=1mm, very thick] (-8,1) rectangle (1,9.2);
+    \node[anchor=west] (A) at (-8.2,9.4){amplifier and compressor};
+    \node[anchor=west] (A) at (6.8,8.2){delay stage};
+    \spectrometer[angle=0] at (5.5,4);
+    \node[anchor=west] (A) at (5.3,4.8){spectrometer};
+    \camera[angle=90] at (2.5,6);
+    \camera[angle=90] at (4,5);
+    \node (A) at (2.8,7.6){seed cam};
+    \node (A) at (4.6,6.6){amplifier cam};
+    \diode[angle=180] at (9,1);
+    \diode[angle=180] at (2,2);
+    \node (A) at (1.55,2.5){D2};
+    \node (A) at (8.55,.5){D1};
+    \draw[very thick] (11,1) --node[laserdir]{\laserdir} (10,1) -- (10,7) -- (8,7) --node[laserdir]{\laserdir} (8,2) --node[laserdir, pos=0.8]{\laserdir} (2,2);
+    \draw[very thick] (5,2) -- (5,0.1) --node[laserdir]{\laserdir} (-8+8*\skala,.1) -- ++(0,.9);
+    \draw[very thick] (5,1) --node[laserdir, pos=0.72]{\laserdir} (2.5,1) -- (2.5,6);
+    \draw[very thick] (-8+9.8*\skala,1) -- ++(0,-1.1) --node[laserdir,pos=0.6]{\laserdir} (4,-.1) --node[laserdir]{\laserdir} (4,5);
+    \draw[very thick] (4,4) --node[laserdir]{\laserdir} (5.5,4);
+    \draw[very thick] (10,1) -- (9,1);
+    \TFP[angle=0] at (1,0.1);
+    \node (A) at (1.1,.8){HWP};
+    \splitter[angle=-45, width=0.6, thickness=0.3] at (5,1);
+    \node (A) at (5,2.7){BS};
+    \splitter[angle=135, thickness=0.6] at (5,2);
+    \splitter[angle=-45+180, thickness=0.6] at (4,4);
+    \convexlens[angle=0] at (5,4);
+    \mirror[angle=-45, shift=0.9, width=0.6] at (4.1,0);
+    \mirror[angle=225, shift=-0.9, width=0.6] at (-8+9.8*\skala-.1,0);
+    \mirror[angle=225] at (-8+8*\skala+.1,0);
+    \mirror[angle=-45] at (5,0.1);
+    \mirror[angle=-45] at (8,2);
+    \mirror[angle=-45] at (8,2);
+    \mirror[angle=135] at (8,7);
+    \mirror[angle=45] at (10,7);
+    \mirror[angle=225, strip=0.5] at (10,1);
+    \node (A) at (10,0){steering\\mirror};
+    \mirror[angle=225] at (2.5,1);
+    %% amplifier
+    \begin{scope}[shift={(-8,.75)}, scale=\skala]
+        \draw[very thick] (8,0.25) -- (8,1) --node[laserdir]{\laserdir} (4,1) -- (5,2) -- (7.5,4.5) --node[laserdir]{\laserdir} (7,9) --node[laserdir]{\laserdir} (7,2.3) --node[laserdir]{\laserdir} (0.8,2.3) --node[laserdir]{\laserdir} (1,7) --node[laserdir]{\laserdir} (1.2,2) --node[laserdir]{\laserdir} (5,2);
+        \draw[very thick] (7.5,4.5) -- (8.5,5.5) -- (8.5,8.3) --node[laserdir]{\laserdir} (4.5,8.3) -- (4.5,6.5);
+        \draw[very thick] (8.5,5.5) -- (9.8,6.8) --node[laserdir]{\laserdir} (9.8,.25);
+        \splitter[angle=-70] at (5,2);
+        \splitter[angle=-10] at (7.5,4.5);
+        \node (A) at ($(5,2)+(-45:.8)$){TFP};
+        \node (A) at ($(7.5,4.5)+(-15:.9)$){TFP};
+        \node (A) at ($(5.6,2.6)+(160:.7)$){$\lambda/2$};
+        \splitter[angle=45, width=0.6, thickness=0.3] at (5.6,2.6);
+        \mirror[angle=-22.5, strip=0.5] at (8.5,5.5);
+        \concavelens[angle=90] at (8.5, 6.5);
+        \convexlens[angle=90] at (8.5, 7.5);
+        \mirror[angle=45+22.5] at (9.8,6.8);
+        \mirror[angle=45] at (8,1);
+        \mirror[angle=225, width=1.4] at (1,2.1);
+        \node (A) at (.5,1.6){SM};
+        \mirror[angle=-45, width=1.4] at (7,2.3);
+        \node (A) at (7.5,1.8){SM};
+        \curvedmirror[angle=90] at (7,9);
+        \diode[angle=90] at (7,9.4);
+        \mirror[angle=225] at (4,1);
+        \mirror[angle=45] at (8.5,8.3);
+        \mirror[angle=45+90, width=0.6] at (4.5,8.3);
+        \pockelscell[angle=45, shift=0.8] at (5.8,2.8);
+        \node[rotate=-45] at (5.7,3.75){Pockels cell};
+
+        %% compressor
+        \begin{scope}[shift={(0,-.3)}]
+            \filldraw[fill opacity = 0.1,rounded corners=1mm, thick, dotted] (3.3,5.5) rectangle (6.5,8.2);
+            \draw[very thick,-{latex}] (4.5,7.3) -- +(-1,0);
+            \coordinate (BM) at (5.5,6);
+            \coordinate (G1) at (4.5,6.5);
+            \coordinate (G2) at (5.5,7.5);
+            % \drawrainbow[width start=0, width end=0.6]{G1}{G2}{45}{45}
+            % \drawrainbow[width start=0.6, width end=0.6]{G2}{BM}{45}{90}
+            \grating[angle=225] at (G1);
+            \grating[angle=45] at (G2);
+            \mirror[angle=-90, width=0.6] at (BM);
+            \begin{scope}[opacity=.5]
+                \mirror[angle=45, width=0.6, shift=-0.5] at (4.6,7.2);
+            \end{scope}
+        \end{scope}
+
+        %% diode stack
+        \laser[thickness=1.6] at (3,9.5);
+        \shadedraw[thick, opacity =.5] (3,9.8) -- (1.3,9.8) -- (.7,9.3) --(.7,8.3) -- (.9,6.8) -- (1.1,6.8) -- (1.3,8.3) -- (1.3,9.2) -- (3,9.2);
+        \filldraw[optikzred, draw=black, thick] (0.8,6.8) rectangle (1.2,6.6);
+        \concavelens[angle=90] at (1,8.6);
+        \convexlens[angle=90] at (1,8.2);
+        \planconvexlens[angle=-90] at (1,7.8);
+        \convexlens[angle=0] at (2,9.5);
+        \mirror[angle=135] at (1,9.5);
+        \mirror[angle=90, strip=0.5] at (1,7);
+    \end{scope}
+\end{tikzpicture}
+\end{document}
+```
+
+</details>
+
+![image.png](https://b3logfile.com/file/2026/05/image-SIIKZbI.png)
+
 ## Features
 
 - [x] Offline usage (no internet required)
@@ -718,6 +834,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 - [x] array
 - [x] tkz-euclide
 - [x] quantikz / quantikz2
+- [x] optikz
 
 > If your code fails to render properly, it's likely due to an unsupported package. Please [open an issue on GitHub](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues) or [post in the SiYuan community](https://ld246.com/article/1762188806548) to request support for additional packages.
 
@@ -734,6 +851,8 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
++ v0.9.0
+    + Add package: optikz & siunitx
 + v0.8.1
     + Optimize: automatically check and fix availability when starting the plugin
 + v0.8.0
