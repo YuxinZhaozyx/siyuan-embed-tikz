@@ -835,6 +835,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 - [x] tkz-euclide
 - [x] quantikz / quantikz2
 - [x] optikz
+- [x] forest
 
 > If your code fails to render properly, it's likely due to an unsupported package. Please [open an issue on GitHub](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues) or [post in the SiYuan community](https://ld246.com/article/1762188806548) to request support for additional packages.
 
@@ -851,6 +852,8 @@ Click the menu button on the left side of a TikZ Widget block. An option labeled
 
 ## Changelog
 
++ v0.10.0
+    + Add package: forest
 + v0.9.0
     + Add package: optikz & siunitx
 + v0.8.1

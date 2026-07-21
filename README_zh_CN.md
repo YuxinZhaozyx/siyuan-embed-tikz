@@ -840,6 +840,7 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 - [x] tkz-euclide
 - [x] quantikz / quantikz2
 - [x] optikz
+- [x] forest
 
 > 如发现代码无法正常渲染为图形，大概率是缺少一些包，欢迎[在GitHub仓库中提issue](https://github.com/YuxinZhaozyx/siyuan-embed-tikz/issues)或[在思源笔记社区中发帖](https://ld246.com/article/1762188806548)请求添加更多包的支持
 
@@ -854,6 +855,8 @@ C' \arrow[rr,"k'" near end] \arrow[dr,swap,"c"] && D' \arrow[dr,swap,"d"] \\
 
 ## 更新日志
 
++ v0.10.0
+    + 增加宏包: forest
 + v0.9.0
     + 增加宏包: optikz & siunitx
 + v0.8.1
