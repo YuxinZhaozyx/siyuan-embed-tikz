@@ -1,4 +1,10 @@
 {
+  "commonConfig": "Common configuration",
+  "commonConfigDescription": "Save reusable TikZ code to insert at the cursor or replace the selection in the TikZ editor.",
+  "editCommonConfig": "Edit common configuration",
+  "insertCommonConfig": "Insert common configuration",
+  "commonConfigEmpty": "Edit and save a common configuration in the plugin settings first.",
+  "saveCommonConfigFailed": "Failed to save the common configuration. Please try again.",
   "noMessage": "no message",
   "compile": "compile",
   "compiling": "compiling",

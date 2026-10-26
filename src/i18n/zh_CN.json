@@ -1,4 +1,10 @@
 {
+  "commonConfig": "常用配置",
+  "commonConfigDescription": "保存常用的 TikZ 代码，可在 TikZ 编辑窗口中插入到光标或选区处。",
+  "editCommonConfig": "编辑常用配置",
+  "insertCommonConfig": "插入常用配置",
+  "commonConfigEmpty": "请先在插件设置中编辑并保存常用配置。",
+  "saveCommonConfigFailed": "常用配置保存失败，请重试。",
   "noMessage": "无信息",
   "compile": "编译",
   "compiling": "编译中",

@@ -5,6 +5,7 @@ import {
   fetchPost,
   IWebSocketData,
   Constants,
+  showMessage,
 } from "siyuan";
 import { compare } from "compare-versions";
 import "@/index.scss";
@@ -24,6 +25,8 @@ try {
 const {
   version,
 } = PluginInfo
+
+const STORAGE_NAME = "config.json";
 
 export default class TikZPlugin extends Plugin {
   // Run as mobile
@@ -45,6 +48,7 @@ export default class TikZPlugin extends Plugin {
 
   async onload() {
     this.initMetaInfo();
+    await this.initSetting();
     this.systemCheckAndFix();
     initializeTikZ(`/plugins/${this.name}/libs/tikzjax`);
 
@@ -75,8 +79,79 @@ export default class TikZPlugin extends Plugin {
     document.documentElement.removeEventListener("keydown", this._globalKeyDownHandler);
   }
 
-  // openSetting() {
-  // }
+  private async initSetting() {
+    await this.loadData(STORAGE_NAME);
+    if (!this.data[STORAGE_NAME]) this.data[STORAGE_NAME] = {};
+    if (typeof this.data[STORAGE_NAME].commonConfig !== "string") {
+      this.data[STORAGE_NAME].commonConfig = "";
+    }
+  }
+
+  openSetting() {
+    const dialog = new Dialog({
+      title: this.displayName,
+      content: `
+<div class="b3-dialog__content">
+    <div class="fn__flex b3-label config__item">
+        <div class="fn__flex-1">
+            ${this.i18n.commonConfig}
+            <div class="b3-label__text">${this.i18n.commonConfigDescription}</div>
+        </div>
+        <span class="fn__space"></span>
+        <button class="b3-button b3-button--text fn__flex-center" data-action="edit-common-config">${this.i18n.editCommonConfig}</button>
+    </div>
+</div>
+<div class="b3-dialog__action">
+    <button class="b3-button b3-button--cancel" data-action="close">${window.siyuan.languages.close}</button>
+</div>`,
+      width: this.isMobile ? "92vw" : "768px",
+      hideCloseIcon: this.isMobile,
+    });
+    dialog.element.querySelector('[data-action="edit-common-config"]').addEventListener("click", () => {
+      this.openCommonConfigDialog();
+    });
+    dialog.element.querySelector('[data-action="close"]').addEventListener("click", () => dialog.destroy());
+  }
+
+  private openCommonConfigDialog() {
+    let editor: Editor;
+    const dialog = new Dialog({
+      title: this.i18n.commonConfig,
+      content: `
+<div class="tikz-edit-dialog">
+    <div class="edit-dialog-container">
+        <div class="edit-dialog-editor"></div>
+    </div>
+    <div class="b3-dialog__action">
+        <button class="b3-button b3-button--cancel" data-action="cancel">${window.siyuan.languages.cancel}</button>
+        <div class="fn__space"></div>
+        <button class="b3-button b3-button--text" data-action="save">${window.siyuan.languages.save}</button>
+    </div>
+</div>`,
+      width: this.isMobile ? "92vw" : "70vw",
+      height: "80vh",
+      hideCloseIcon: this.isMobile,
+      destroyCallback: () => editor?.destroy(),
+    });
+    editor = new Editor(dialog.element.querySelector(".edit-dialog-editor") as HTMLElement, this.data[STORAGE_NAME].commonConfig);
+    editor.focus();
+    dialog.element.querySelector('[data-action="cancel"]').addEventListener("click", () => dialog.destroy());
+    const saveButton = dialog.element.querySelector('[data-action="save"]') as HTMLButtonElement;
+    saveButton.addEventListener("click", async () => {
+      saveButton.disabled = true;
+      const config = { ...this.data[STORAGE_NAME], commonConfig: editor.getContent() };
+      try {
+        await this.saveData(STORAGE_NAME, config);
+        this.data[STORAGE_NAME] = config;
+        dialog.destroy();
+      } catch (error) {
+        console.error("Failed to save common TikZ configuration", error);
+        showMessage(this.i18n.saveCommonConfigFailed, 5000, "error");
+      } finally {
+        saveButton.disabled = false;
+      }
+    });
+  }
 
   private initMetaInfo() {
     const frontEnd = getFrontend();
@@ -105,6 +180,8 @@ export default class TikZPlugin extends Plugin {
         <textarea readonly class="edit-dialog-message fn__none" placeholder="${this.i18n.noMessage}"></textarea>
     </div>
     <div class="b3-dialog__action">
+        <button data-action="insert-common-config" class="b3-button b3-button--outline">${this.i18n.insertCommonConfig}</button>
+        <div class="fn__flex-1"></div>
         <div data-action="main">
             <button data-action="success" class="b3-button b3-button--success fn__none">${this.i18n.compileSuccessButton}</button>
             <button data-action="error" class="b3-button b3-button--error fn__none">${this.i18n.compileErrorButton}</button>
@@ -128,7 +205,18 @@ export default class TikZPlugin extends Plugin {
     const editor = new Editor(editorContainer, imageInfo.tikzCode);
     editor.focus();
 
+    const insertButton = dialog.element.querySelector('[data-action="insert-common-config"]') as HTMLButtonElement;
+    insertButton.addEventListener("click", () => {
+      const code = this.data[STORAGE_NAME].commonConfig;
+      if (!code) {
+        showMessage(this.i18n.commonConfigEmpty);
+        return;
+      }
+      editor.insertContent(code);
+    });
+
     const compileHandler = async () => {
+      insertButton.disabled = true;
       editor.setEditable(false);
       dialog.element.querySelector("[data-action=main]").classList.toggle("fn__none", true);
       dialog.element.querySelector("[data-action=compiling]").classList.toggle("fn__none", false);
@@ -150,6 +238,7 @@ export default class TikZPlugin extends Plugin {
       if (autoClose && compileResult.ok) dialog.destroy(); 
 
       editor.setEditable(true);
+      insertButton.disabled = false;
       dialog.element.querySelector("[data-action=main]").classList.toggle("fn__none", false);
       dialog.element.querySelector("[data-action=compiling]").classList.toggle("fn__none", true);
     }

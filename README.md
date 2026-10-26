@@ -847,11 +847,16 @@ Type `/tikz` in the editor to create a new TikZ image.
 **Edit a TikZ Image:**  
 Click the menu button in the top-right corner of the image. If the block is recognized as a valid TikZ image, an `Edit TikZ` option will appear. Click it to open the editor.
 
+**Common Configuration:**  
+Click `Edit common configuration` in the plugin settings to edit and save reusable TikZ code. Click `Insert common configuration` in the bottom-left corner of the TikZ editor to insert it at the cursor or replace the selection. Insertion supports undo.
+
 **Migrate from TikZ Widget:**  
 Click the menu button on the left side of a TikZ Widget block. An option labeled `Convert to Embed TikZ` will appear. Click it to convert the old widget block into a new Embed Series image.
 
 ## Changelog
 
++ v0.11.0
+    + Feature: common configuration
 + v0.10.0
     + Add package: forest
 + v0.9.0

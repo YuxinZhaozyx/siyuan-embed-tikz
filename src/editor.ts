@@ -1,5 +1,5 @@
 // CodeMirror 6
-import { autocompletion, closeBrackets, closeBracketsKeymap } from "@codemirror/autocomplete"; // autocompletion, completionKeymap
+import { autocompletion, closeBracketsKeymap } from "@codemirror/autocomplete"; // autocompletion, completionKeymap
 import { defaultKeymap, history, historyKeymap, indentWithTab } from "@codemirror/commands";
 import {
     latexLanguage, 
@@ -181,6 +181,19 @@ export class Editor {
 
     public focus() {
         this.view.contentDOM.focus();
+    }
+
+    public insertContent(content: string) {
+        this.view.dispatch({
+            ...this.view.state.replaceSelection(content),
+            scrollIntoView: true,
+            userEvent: "input.paste",
+        });
+        this.focus();
+    }
+
+    public destroy() {
+        this.view.destroy();
     }
 
 }
